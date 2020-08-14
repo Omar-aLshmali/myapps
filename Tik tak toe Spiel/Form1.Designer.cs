@@ -44,6 +44,7 @@
             this.sp2 = new System.Windows.Forms.Label();
             this.unent = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.istdran = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // A00
@@ -53,7 +54,7 @@
             this.A00.Size = new System.Drawing.Size(75, 24);
             this.A00.TabIndex = 0;
             this.A00.UseVisualStyleBackColor = true;
-            this.A00.Click += new System.EventHandler(this.button1_Click);
+            this.A00.Click += new System.EventHandler(this.ButtonAll);
             // 
             // A01
             // 
@@ -62,6 +63,7 @@
             this.A01.Size = new System.Drawing.Size(75, 24);
             this.A01.TabIndex = 1;
             this.A01.UseVisualStyleBackColor = true;
+            this.A01.Click += new System.EventHandler(this.ButtonAll);
             // 
             // A02
             // 
@@ -70,6 +72,7 @@
             this.A02.Size = new System.Drawing.Size(75, 24);
             this.A02.TabIndex = 2;
             this.A02.UseVisualStyleBackColor = true;
+            this.A02.Click += new System.EventHandler(this.ButtonAll);
             // 
             // A10
             // 
@@ -78,6 +81,7 @@
             this.A10.Size = new System.Drawing.Size(75, 24);
             this.A10.TabIndex = 3;
             this.A10.UseVisualStyleBackColor = true;
+            this.A10.Click += new System.EventHandler(this.ButtonAll);
             // 
             // A11
             // 
@@ -86,6 +90,7 @@
             this.A11.Size = new System.Drawing.Size(75, 24);
             this.A11.TabIndex = 4;
             this.A11.UseVisualStyleBackColor = true;
+            this.A11.Click += new System.EventHandler(this.ButtonAll);
             // 
             // A12
             // 
@@ -94,6 +99,7 @@
             this.A12.Size = new System.Drawing.Size(75, 24);
             this.A12.TabIndex = 5;
             this.A12.UseVisualStyleBackColor = true;
+            this.A12.Click += new System.EventHandler(this.ButtonAll);
             // 
             // A20
             // 
@@ -102,6 +108,7 @@
             this.A20.Size = new System.Drawing.Size(75, 24);
             this.A20.TabIndex = 6;
             this.A20.UseVisualStyleBackColor = true;
+            this.A20.Click += new System.EventHandler(this.ButtonAll);
             // 
             // A21
             // 
@@ -110,6 +117,7 @@
             this.A21.Size = new System.Drawing.Size(75, 24);
             this.A21.TabIndex = 7;
             this.A21.UseVisualStyleBackColor = true;
+            this.A21.Click += new System.EventHandler(this.ButtonAll);
             // 
             // A22
             // 
@@ -118,6 +126,7 @@
             this.A22.Size = new System.Drawing.Size(75, 24);
             this.A22.TabIndex = 8;
             this.A22.UseVisualStyleBackColor = true;
+            this.A22.Click += new System.EventHandler(this.ButtonAll);
             // 
             // checkBox1
             // 
@@ -184,12 +193,23 @@
             this.button1.TabIndex = 16;
             this.button1.Text = "Neu Anfangen";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // istdran
+            // 
+            this.istdran.AutoSize = true;
+            this.istdran.Location = new System.Drawing.Point(294, 13);
+            this.istdran.Name = "istdran";
+            this.istdran.Size = new System.Drawing.Size(46, 17);
+            this.istdran.TabIndex = 17;
+            this.istdran.Text = "label1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.istdran);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.unent);
             this.Controls.Add(this.sp2);
@@ -232,6 +252,7 @@
         private System.Windows.Forms.Label sp2;
         private System.Windows.Forms.Label unent;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label istdran;
     }
 }
 
