@@ -19,7 +19,7 @@ namespace Tik_tak_toe_Spiel
         int s2 = 0;
         int unentschieden = 0;
         int zug = 0;
-        String[] btnId;
+       
 
        
         public Form1()
@@ -440,9 +440,21 @@ namespace Tik_tak_toe_Spiel
                 zug++;
                 spieler++;
             }
-            else if ((A02.Text == "") && spieler == 2 || spieler == 4 || spieler == 6 || spieler == 8)
+            else if ((A02.Text == "") && (spieler == 2 || spieler == 4 || spieler == 6 || spieler == 8))
             {
                 A02.Text = "Y";
+                zug++;
+                spieler++;
+            }
+            else if ((A21.Text == "") && (spieler ==10 || spieler == 6 || spieler == 8))
+            {
+                A21.Text = "Y";
+                zug++;
+                spieler++;
+            }
+            else if ((A22.Text == "") && (spieler == 10 ||  spieler == 8))
+            {
+                A22.Text = "Y";
                 zug++;
                 spieler++;
             }
