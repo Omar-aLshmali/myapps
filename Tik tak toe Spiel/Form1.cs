@@ -44,50 +44,64 @@ namespace Tik_tak_toe_Spiel
         private void ButtonAll(object sender, EventArgs e)
         {
             Button button = (Button) sender;
-           
+
+
+
             if (button.Text == "")
             {
-
-
-
-
-                if (spieler % 2 == 1)
+                if (checkBox1.Checked)
                 {
-                    button.Text = "X";
-                    spieler++;
-                    zug++;
-                    
-                }
-                else
-                {
-                    PcEingabe();
-                }
-                    
-
-                if (Unentschieden()==true)
-                {
-                    MessageBox.Show("Es ist Unentschieden");
-                    unentschieden++;
-                    NeuesSpiel();
-                }
-                if (IsGewinnt())
-                {
-                   if (button.Text=="X")
+                    if (spieler % 2 == 1)
                     {
-                        MessageBox.Show("X hat gewonnen");
-                        s1++;
-                        NeuesSpiel();
+                        button.Text = "X";
+                        spieler++;
+                        zug++;
+
                     }
                     else
+                        SchwierSp();
+                }
+
+                else
+                {
+                    if (spieler % 2 == 1)
                     {
-                        MessageBox.Show("Y hat gewonnen");
-                        s2++;
-                        NeuesSpiel();
+                        button.Text = "X";
+                        spieler++;
+                        zug++;
+
                     }
+
+                    else
+                        PcEingabe();
+                    
+                }
+
+                
+            }
+
+
+            if (Unentschieden() == true)
+            {
+                MessageBox.Show("Es ist Unentschieden");
+                unentschieden++;
+                NeuesSpiel();
+            }
+            else if (IsGewinnt())
+            {
+                if (button.Text == "X")
+                {
+                    MessageBox.Show("X hat gewonnen");
+                    s1++;
+                    NeuesSpiel();
+                }
+                else 
+                {
+                    MessageBox.Show("Gegner hat gewonnen");
+                    s2++;
+                    NeuesSpiel();
                 }
             }
-           
-
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -98,9 +112,9 @@ namespace Tik_tak_toe_Spiel
         public void NeuesSpiel()
         {
             A00.Text = A01.Text = A02.Text = A10.Text = A11.Text = A12.Text = A20.Text = A21.Text = A22.Text = "";
-            sp1.Text = "Spieler 1 : " + s1.ToString();
-            sp2.Text = "Spieler 2 : " + s2.ToString();
-            unent.Text = unentschieden.ToString();
+            sp1.Text = "Du : " + s1.ToString();
+            sp2.Text = "Gegner : " + s2.ToString();
+            unent.Text = "Unentschieden : "+unentschieden.ToString();
             zug = 0;
             RandomPlay();
             
@@ -115,7 +129,7 @@ namespace Tik_tak_toe_Spiel
 
 
             // Horizental
-            if (A00.Text== A01.Text && A00.Text==A02.Text && A00.Text!="")
+            if (A00.Text == A01.Text && A00.Text == A02.Text && A00.Text != "")
             {
                 return true;   
             }
@@ -149,7 +163,7 @@ namespace Tik_tak_toe_Spiel
             {
                 return true;
             }
-            if (A20.Text == A11.Text && A20.Text == A12.Text && A20.Text != "")
+            if (A20.Text == A11.Text && A20.Text == A02.Text && A20.Text != "")
             {
                 return true;
             }
@@ -177,15 +191,15 @@ namespace Tik_tak_toe_Spiel
         {
 
             Random spielerAn = new Random();
-         int   spRandom = spielerAn.Next(4,6);
+         int   spRandom = spielerAn.Next(0,2);
              
-            if (spRandom ==5)
+            if (spRandom ==1)
             {
                 spieler = spRandom;
                 istdran.Text = "Du bist Dran";
                 
             }
-            else if (spRandom==4)
+            else if (spRandom==0)
             {
                 spieler = spRandom;
                 istdran.Text = "PC ist dran";
@@ -317,14 +331,121 @@ namespace Tik_tak_toe_Spiel
                     else
 
                         break;
+            }
+        }
+        public void SchwierSp()
+        {
+            if (spieler == 0|| spieler == 2 && A20.Text=="")
+            {
+                A20.Text = "Y";
+                zug++;
+                spieler++;
+            }
+           
 
-
-
-
+            else if (A20.Text=="Y"&&A11.Text=="Y" && A02.Text==""  || A22.Text == "Y" && A12.Text == "Y" && A02.Text == "" || A00.Text == "Y" && A01.Text == "Y" && A02.Text == "" )
+            {
+                A02.Text = "Y";
+                spieler++;
+                zug++;
+            }
+            else if (A00.Text == "Y" && A11.Text == "Y" && A22.Text == "" || A02.Text == "Y" && A12.Text == "Y" && A22.Text == ""|| A20.Text=="Y"&& A21.Text=="Y" && A22.Text=="")
+            {
+                A22.Text = "Y";
+                spieler++;
+                zug++;
             }
 
+            else if (A12.Text == "Y" && A11.Text == "Y" && A10.Text == "" || A00.Text == "Y" && A20.Text == "Y" && A10.Text == "" )
+            {
+                A10.Text = "Y";
+                spieler++;
+                zug++;
+            }
+           
+            else if (A10.Text == "Y" && A11.Text == "Y" && A12.Text == "" || A02.Text == "Y" && A22.Text == "Y" && A12.Text == "")
+            {
+                A12.Text = "Y";
+                spieler++;
+                zug++;
+            }
+            else if (A21.Text == "Y" && A11.Text == "Y" && A01.Text == "" || A00.Text == "Y" && A02.Text == "Y" && A01.Text == "")
+            {
+                A01.Text = "Y";
+                spieler++;
+                zug++;
+            }
+          
 
+            else if (A01.Text == "Y" && A11.Text == "Y" && A21.Text == ""  || A20.Text == "Y" && A22.Text == "Y" && A21.Text == "" )
+            {
+                A21.Text = "Y";
+                spieler++;
+                zug++;
+            }
+            else if (A01.Text == "X" && A11.Text == "X" && A21.Text == "" || A20.Text == "X" && A22.Text == "X" && A21.Text == "")
+            {
+                A21.Text = "Y";
+                spieler++;
+                zug++;
+            }
+            else if (A20.Text == "X" && A11.Text == "X" && A02.Text == "" || A22.Text == "X" && A12.Text == "X" && A02.Text == "" || A00.Text == "X" && A01.Text == "X" && A02.Text == "")
+            {
+                A02.Text = "Y";
+                spieler++;
+                zug++;
+            }
+            else if (A12.Text == "X" && A11.Text == "X" && A10.Text == "" || A00.Text == "X" && A20.Text == "X" && A10.Text == "")
+            {
+                A10.Text = "Y";
+                spieler++;
+                zug++;
+            }
+                else if (A21.Text == "X" && A11.Text == "X" && A01.Text == "" || A00.Text == "X" && A02.Text == "X" && A01.Text == "")
+                {
+                    A01.Text = "Y";
+                    spieler++;
+                    zug++;
+                }
+            else if (A00.Text == "X" && A11.Text == "X" && A22.Text == "" || A02.Text == "X" && A12.Text == "X" && A22.Text == "" || A20.Text == "X" && A21.Text == "X" && A22.Text == "")
+            {
+                A22.Text = "Y";
+                spieler++;
+                zug++;
+            }
 
+            else if ((A10.Text == "X" && A11.Text == "X" && A12.Text == "") || (A02.Text == "X" && A22.Text == "X" && A12.Text == ""))
+            {
+                A12.Text = "Y";
+                spieler++;
+                zug++;
+            }
+            else if (A22.Text == "Y" && A11.Text == "Y" && A00.Text == "" || A22.Text == "X" && A11.Text == "X" && A00.Text == "" || A20.Text == "Y" && A10.Text == "Y" && A00.Text == "" || A20.Text == "X" && A10.Text == "X" && A00.Text == "" || A02.Text == "Y" && A10.Text == "Y" && A00.Text == "" || A02.Text == "X" && A01.Text == "X" && A00.Text == "")
+            {
+                A00.Text = "Y";
+                spieler++;
+                zug++;
+            }
+            
+            else if ( (A11.Text == "" ) &&  (spieler == 2 ||spieler==4 ))
+            {
+                A11.Text = "Y";
+                zug++;
+                spieler++;
+            }
+
+            else if (( A12.Text == "") && (spieler == 0 || spieler == 2 || spieler == 4|| spieler == 6 || spieler == 8 || spieler == 10))
+            {
+                A12.Text = "Y";
+                zug++;
+                spieler++;
+            }
+            else if ((A02.Text == "") && spieler == 2 || spieler == 4 || spieler == 6 || spieler == 8)
+            {
+                A02.Text = "Y";
+                zug++;
+                spieler++;
+            }
         }
     }
 }
