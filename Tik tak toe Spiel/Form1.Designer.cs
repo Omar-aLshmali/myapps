@@ -245,7 +245,7 @@
             // 
             this.istdran.AutoSize = true;
             this.istdran.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.istdran.Location = new System.Drawing.Point(281, 58);
+            this.istdran.Location = new System.Drawing.Point(261, 62);
             this.istdran.Name = "istdran";
             this.istdran.Size = new System.Drawing.Size(0, 25);
             this.istdran.TabIndex = 17;

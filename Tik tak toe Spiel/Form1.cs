@@ -46,8 +46,6 @@ namespace Tik_tak_toe_Spiel
         {
             Button button = (Button) sender;
 
-
-
             if (button.Text == "")
             {
                 if (checkBox1.Checked)
@@ -57,12 +55,11 @@ namespace Tik_tak_toe_Spiel
                         button.Text = "X";
                         spieler++;
                         zug++;
-
                     }
-                    else
+                 else 
                         SchwierSp();
                 }
-
+                
                 else
                 {
                     if (spieler % 2 == 1)
@@ -70,18 +67,12 @@ namespace Tik_tak_toe_Spiel
                         button.Text = "X";
                         spieler++;
                         zug++;
-
                     }
 
                     else
                         PcEingabe();
-                    
-                }
-
-                
+                }    
             }
-
-
             if (Unentschieden() == true)
             {
                 MessageBox.Show("Es ist Unentschieden");
@@ -92,7 +83,7 @@ namespace Tik_tak_toe_Spiel
             {
                 if (button.Text == "X")
                 {
-                    MessageBox.Show("X hat gewonnen");
+                    MessageBox.Show("Du hast gewonnen");
                     s1++;
                     NeuesSpiel();
                 }
@@ -197,13 +188,13 @@ namespace Tik_tak_toe_Spiel
             if (spRandom ==1)
             {
                 spieler = spRandom;
-                istdran.Text = "Du bist Dran";
+                istdran.Text = "Du fängst an";
                 
             }
             else if (spRandom==0)
             {
                 spieler = spRandom;
-                istdran.Text = "PC ist dran";
+                istdran.Text = "PC fängt an";
 
 
             }
@@ -363,7 +354,6 @@ namespace Tik_tak_toe_Spiel
                 spieler++;
                 zug++;
             }
-           
             else if (A10.Text == "Y" && A11.Text == "Y" && A12.Text == "" || A02.Text == "Y" && A22.Text == "Y" && A12.Text == "")
             {
                 A12.Text = "Y";
@@ -376,8 +366,6 @@ namespace Tik_tak_toe_Spiel
                 spieler++;
                 zug++;
             }
-          
-
             else if (A01.Text == "Y" && A11.Text == "Y" && A21.Text == ""  || A20.Text == "Y" && A22.Text == "Y" && A21.Text == "" )
             {
                 A21.Text = "Y";
@@ -434,7 +422,6 @@ namespace Tik_tak_toe_Spiel
                 zug++;
                 spieler++;
             }
-
             else if (( A12.Text == "") && (spieler == 0 || spieler == 2 || spieler == 4|| spieler == 6 || spieler == 8 || spieler == 10))
             {
                 A12.Text = "Y";
