@@ -39,6 +39,7 @@ namespace Tik_tak_toe_Spiel
 
         private void button12_Click(object sender, EventArgs e)
         {
+
             Close();
         }
         private void ButtonAll(object sender, EventArgs e)
@@ -87,7 +88,7 @@ namespace Tik_tak_toe_Spiel
                 unentschieden++;
                 NeuesSpiel();
             }
-            else if (IsGewinnt())
+            else if (Gewinnt())
             {
                 if (button.Text == "X")
                 {
@@ -119,7 +120,7 @@ namespace Tik_tak_toe_Spiel
             RandomPlay();
             
         }
-        bool IsGewinnt()
+        bool Gewinnt()
         {
 
             /*
@@ -174,7 +175,7 @@ namespace Tik_tak_toe_Spiel
         bool Unentschieden()
         {
 
-            if (zug == 9 && IsGewinnt()==false)
+            if (zug == 9 && Gewinnt()==false)
             {
                 
                 return true;
@@ -401,7 +402,7 @@ namespace Tik_tak_toe_Spiel
                 spieler++;
                 zug++;
             }
-                else if (A21.Text == "X" && A11.Text == "X" && A01.Text == "" || A00.Text == "X" && A02.Text == "X" && A01.Text == "")
+            else if (A21.Text == "X" && A11.Text == "X" && A01.Text == "" || A00.Text == "X" && A02.Text == "X" && A01.Text == "")
                 {
                     A01.Text = "Y";
                     spieler++;
@@ -455,6 +456,12 @@ namespace Tik_tak_toe_Spiel
             else if ((A22.Text == "") && (spieler == 10 ||  spieler == 8))
             {
                 A22.Text = "Y";
+                zug++;
+                spieler++;
+            }
+            else if ((A00.Text == "") && (spieler == 6 || spieler == 4))
+            {
+                A00.Text = "Y";
                 zug++;
                 spieler++;
             }

@@ -8,3 +8,13 @@ C:\Users\HO\source\repos\Tik tak toe Spiel\Tik tak toe Spiel\obj\Debug\Tik tak t
 C:\Users\HO\source\repos\Tik tak toe Spiel\Tik tak toe Spiel\obj\Debug\Tik tak toe Spiel.csproj.CoreCompileInputs.cache
 C:\Users\HO\source\repos\Tik tak toe Spiel\Tik tak toe Spiel\obj\Debug\Tik tak toe Spiel.exe
 C:\Users\HO\source\repos\Tik tak toe Spiel\Tik tak toe Spiel\obj\Debug\Tik tak toe Spiel.pdb
+C:\Users\oalshmali\source\repos\tik tak\myapps\Tik tak toe Spiel\bin\Debug\Tik tak toe Spiel.exe.config
+C:\Users\oalshmali\source\repos\tik tak\myapps\Tik tak toe Spiel\bin\Debug\Tik tak toe Spiel.exe
+C:\Users\oalshmali\source\repos\tik tak\myapps\Tik tak toe Spiel\bin\Debug\Tik tak toe Spiel.pdb
+C:\Users\oalshmali\source\repos\tik tak\myapps\Tik tak toe Spiel\obj\Debug\Tik tak toe Spiel.csprojAssemblyReference.cache
+C:\Users\oalshmali\source\repos\tik tak\myapps\Tik tak toe Spiel\obj\Debug\Tik_tak_toe_Spiel.Form1.resources
+C:\Users\oalshmali\source\repos\tik tak\myapps\Tik tak toe Spiel\obj\Debug\Tik_tak_toe_Spiel.Properties.Resources.resources
+C:\Users\oalshmali\source\repos\tik tak\myapps\Tik tak toe Spiel\obj\Debug\Tik tak toe Spiel.csproj.GenerateResource.cache
+C:\Users\oalshmali\source\repos\tik tak\myapps\Tik tak toe Spiel\obj\Debug\Tik tak toe Spiel.csproj.CoreCompileInputs.cache
+C:\Users\oalshmali\source\repos\tik tak\myapps\Tik tak toe Spiel\obj\Debug\Tik tak toe Spiel.exe
+C:\Users\oalshmali\source\repos\tik tak\myapps\Tik tak toe Spiel\obj\Debug\Tik tak toe Spiel.pdb
