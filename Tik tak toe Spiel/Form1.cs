@@ -45,34 +45,29 @@ namespace Tik_tak_toe_Spiel
         private void ButtonAll(object sender, EventArgs e)
         {
             Button button = (Button) sender;
+            
 
-            if (button.Text == "")
+            if (spieler % 2 == 1)
             {
+                SpielerEingabe(button);
+            }
+            else if (spieler % 2 == 0)
+            { 
                 if (checkBox1.Checked)
                 {
-                    if (spieler % 2 == 1)
-                    {
-                        button.Text = "X";
-                        spieler++;
-                        zug++;
-                    }
-                 else 
-                        SchwierSp();
+                    
+                    SchwierSp();
+                   
                 }
-                
                 else
-                {
-                    if (spieler % 2 == 1)
-                    {
-                        button.Text = "X";
-                        spieler++;
-                        zug++;
-                    }
+                   
+                PcEingabe();
 
-                    else
-                        PcEingabe();
-                }    
             }
+        
+                
+                 
+            
             if (Unentschieden() == true)
             {
                 MessageBox.Show("Es ist Unentschieden");
@@ -215,15 +210,15 @@ namespace Tik_tak_toe_Spiel
             rest();
         }
 
-        public void PcEingabe()
+        public void PcEingabe( )
         {
             Random eingane = new Random();
-
+            
             int a = eingane.Next(9);
             switch(a)
             {
                 case 1:
-                    if ( A00.Text=="" )
+                    if ( A00.Text==""  )
                     {
                         A00.Text = "Y";
                         zug++;
@@ -325,11 +320,12 @@ namespace Tik_tak_toe_Spiel
                         break;
             }
         }
-        public void SchwierSp()
+        public void SchwierSp( )
         {
             if (spieler == 0|| spieler == 2 && A20.Text=="")
             {
                 A20.Text = "Y";
+                A20.PerformClick();
                 zug++;
                 spieler++;
             }
@@ -453,5 +449,17 @@ namespace Tik_tak_toe_Spiel
                 spieler++;
             }
         }
+        public void SpielerEingabe(Button b)
+        {
+            if (b.Text == "")
+            {
+                   
+                        b.Text = "X";
+                        spieler++;
+                        zug++;
+                    
+                }
+            }
+        }
     }
-}
+
