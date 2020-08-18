@@ -51,20 +51,7 @@ namespace Tik_tak_toe_Spiel
             {
                 SpielerEingabe(button);
             }
-            else if (spieler % 2 == 0)
-            { 
-                if (checkBox1.Checked)
-                {
-                    
-                    SchwierSp();
-                   
-                }
-                else
-                   
-                PcEingabe();
-
-            }
-        
+            
                 
                  
             
@@ -89,7 +76,8 @@ namespace Tik_tak_toe_Spiel
                     NeuesSpiel();
                 }
             }
-        }
+            button2_Click(sender, e);
+       }
 
         private void button10_Click(object sender, EventArgs e)
         {
@@ -103,6 +91,7 @@ namespace Tik_tak_toe_Spiel
             sp2.Text = "Gegner : " + s2.ToString();
             unent.Text = "Unentschieden : "+unentschieden.ToString();
             zug = 0;
+            
             RandomPlay();
             
         }
@@ -325,7 +314,7 @@ namespace Tik_tak_toe_Spiel
             if (spieler == 0|| spieler == 2 && A20.Text=="")
             {
                 A20.Text = "Y";
-                A20.PerformClick();
+                
                 zug++;
                 spieler++;
             }
@@ -460,6 +449,51 @@ namespace Tik_tak_toe_Spiel
                     
                 }
             }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+           
+
+            for (int i = 0; i <= 8; i++)
+            {
+                
+                if (spieler % 2 == 0)
+                {
+                    if (checkBox1.Checked)
+                    {
+
+                        SchwierSp();
+
+                    }
+                    else
+
+                        PcEingabe();
+
+                }
+            }
+
+            if (Unentschieden() == true)
+            {
+                MessageBox.Show("Es ist Unentschieden");
+                unentschieden++;
+                NeuesSpiel();
+            }
+            else if (Gewinnt())
+            {
+                    MessageBox.Show("Gegner hat gewonnen");
+                    s2++;
+                    NeuesSpiel();
+                
+            }
         }
+        
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            this.button2_Click(null, null);
+        }
+        
+    }
     }
 
