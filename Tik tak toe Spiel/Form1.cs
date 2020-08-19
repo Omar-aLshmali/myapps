@@ -190,14 +190,15 @@ namespace Tik_tak_toe_Spiel
 
         public void PcEingabe( )
         {
-            List<int> list = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+           
             Random eingane = new Random();
-<<<<<<< HEAD
-            
-=======
-            int a = eingane.Next(list.Count);
->>>>>>> master
 
+            
+
+          
+
+
+          
             btnList.Add(A00);
             btnList.Add(A01);
             btnList.Add(A02);
@@ -206,7 +207,6 @@ namespace Tik_tak_toe_Spiel
             btnList.Add(A12);
             btnList.Add(A20);
             btnList.Add(A21);
-<<<<<<< HEAD
             btnList.Add(A22);
 
             for (int j = 0; j < 9; j++)
@@ -235,38 +235,15 @@ namespace Tik_tak_toe_Spiel
                 if (spieler%2==1)
                 break;
             }
-                
-            
         }
+      
         public void ptnWert(Button btn)
         {
             btn.Text = "Y";
             zug++;
             spieler++;
         }
-=======
 
-                for (int i = 0; i < 9; i++)
-                {
-                    if (a == i && btnList[i].Text == "")
-                    {
-                    ptnWert(btnList[i]);
-                    list.Remove(a);
-                    break;
-                   
-                }
-                    
-                }
-                
-            
-        }
-        public void ptnWert(Button btn)
-        {
-            btn.Text = "Y";
-            zug++;
-            spieler++;
-        }
->>>>>>> master
 
         public void SchwierSp( )
         {
