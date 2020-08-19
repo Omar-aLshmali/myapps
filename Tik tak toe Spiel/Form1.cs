@@ -13,6 +13,7 @@ namespace Tik_tak_toe_Spiel
 {
     public partial class Form1 : Form
     {
+        
 
         int spieler ;
         int s1 = 0;
@@ -25,7 +26,7 @@ namespace Tik_tak_toe_Spiel
         {
             InitializeComponent();
           
-        }
+    }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -82,6 +83,7 @@ namespace Tik_tak_toe_Spiel
         private void button10_Click(object sender, EventArgs e)
         {
             NeuesSpiel();
+            OnShown(e);
         }
 
         public void NeuesSpiel()
@@ -91,7 +93,7 @@ namespace Tik_tak_toe_Spiel
             sp2.Text = "Gegner : " + s2.ToString();
             unent.Text = "Unentschieden : "+unentschieden.ToString();
             zug = 0;
-            
+           
             RandomPlay();
             
         }
@@ -186,19 +188,13 @@ namespace Tik_tak_toe_Spiel
         private void button1_Click_1(object sender, EventArgs e)
         {
             rest();
+            OnShown(e);
         }
 
         public void PcEingabe( )
         {
            
             Random eingane = new Random();
-
-            
-
-          
-
-
-          
             btnList.Add(A00);
             btnList.Add(A01);
             btnList.Add(A02);
@@ -247,6 +243,7 @@ namespace Tik_tak_toe_Spiel
 
         public void SchwierSp( )
         {
+
             if (spieler == 0|| spieler == 2 && A20.Text=="")
             {
                 ptnWert(A20);
@@ -386,8 +383,9 @@ namespace Tik_tak_toe_Spiel
         
         protected override void OnShown(EventArgs e)
         {
-            base.OnShown(e);
-            this.button2_Click(null, null);
+            
+                base.OnShown(e);
+                this.button2_Click(null, null);  
         }
         
     }
