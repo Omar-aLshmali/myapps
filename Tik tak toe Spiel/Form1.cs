@@ -19,12 +19,12 @@ namespace Tik_tak_toe_Spiel
         int s2 = 0;
         int unentschieden = 0;
         int zug = 0;
-       
+        List<Button> btnList = new List<Button>();
 
-       
         public Form1()
         {
             InitializeComponent();
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -97,55 +97,44 @@ namespace Tik_tak_toe_Spiel
         }
         bool Gewinnt()
         {
-
-            /*
-          String [] btnId= {A00.Text.ToString(),A12.Text.ToString(),A02.Text.ToString(),A10.Text.ToString(), A11.Text.ToString(),A12.Text.ToString(),
-                            A20.Text.ToString(),A21.Text.ToString(),A22.Text.ToString() };
-            */
+            String[] btnId = { A00.Text, A01.Text, A02.Text, A10.Text, A11.Text, A12.Text, A20.Text, A21.Text, A22.Text };
 
 
             // Horizental
-            if (A00.Text == A01.Text && A00.Text == A02.Text && A00.Text != "")
+            for (int i = 0; i < 9; i = i + 3)
             {
-                return true;   
+                if (btnId[i] == btnId[i + 1] && btnId[i] == btnId[i + 2] && btnId[i] != "")
+                {
+                    return true;
+                }
+                
             }
-            if (A10.Text == A11.Text && A10.Text == A12.Text && A10.Text != "")
-            {
-                return true;
-            }
-            if (A20.Text == A21.Text && A20.Text == A22.Text && A20.Text != "")
-            {
-                return true;
-            }
-
-
             //Vertikal
-            if (A00.Text == A10.Text && A00.Text == A20.Text && A00.Text != "")
+
+            for (int n = 0; n < 3; n++)
             {
-                return true;
+
+
+                if (btnId[n] == btnId[n + 3] && btnId[n] == btnId[n + 6] && btnId[n] != "")
+                {
+                    return true;
+                }
+                
             }
-            if (A01.Text == A11.Text && A01.Text == A21.Text && A01.Text != "")
-            {
-                return true;
-            }
-            if (A02.Text == A12.Text && A02.Text == A22.Text && A02.Text != "")
-            {
-                return true;
-            } 
 
 
             //Mitte
-            if (A00.Text == A11.Text && A00.Text == A22.Text && A00.Text != "")
+            for (int m = 0; m < 3; m = m + 2)
             {
-                return true;
+                if (btnId[m] == btnId[m + 4 - m] && btnId[m] == btnId[10 - m - 2] && btnId[m] != "")
+                {
+                    return true;
+                }
+              
             }
-            if (A20.Text == A11.Text && A20.Text == A02.Text && A20.Text != "")
-            {
-                return true;
-            }
+            return false;
 
-            else
-                return false;
+
         }
         bool Unentschieden()
         {
@@ -201,241 +190,127 @@ namespace Tik_tak_toe_Spiel
 
         public void PcEingabe( )
         {
+            List<int> list = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
             Random eingane = new Random();
+            int a = eingane.Next(list.Count);
+
+            btnList.Add(A00);
+            btnList.Add(A01);
+            btnList.Add(A02);
+            btnList.Add(A10);
+            btnList.Add(A11);
+            btnList.Add(A12);
+            btnList.Add(A20);
+            btnList.Add(A21);
+
+                for (int i = 0; i < 9; i++)
+                {
+                    if (a == i && btnList[i].Text == "")
+                    {
+                    ptnWert(btnList[i]);
+                    list.Remove(a);
+                    break;
+                   
+                }
+                    
+                }
+                
             
-            int a = eingane.Next(9);
-            switch(a)
-            {
-                case 1:
-                    if ( A00.Text==""  )
-                    {
-                        A00.Text = "Y";
-                        zug++;
-                        spieler++;
-                        break;
-                    }
-                    else
-                    
-                        break;
-                    
-                case 2:
-                    if ( A01.Text == "")
-                    {
-                        A01.Text = "Y";
-                    zug++;
-                    spieler++;
-                    break;
-                    }
-                    else
-
-                        break;
-                case 3:
-                    if ( A02.Text == "")
-                    {
-                        A02.Text = "Y";
-                    zug++;
-                    spieler++;
-                    break;
-                    }
-                    else
-
-                        break;
-                case 4:
-
-                    if (  A10.Text == "")
-                    {
-                        A10.Text = "Y";
-                    zug++;
-                    spieler++;
-                    break;
-                    }
-                    else
-
-                        break;
-                case 5:
-                    if ( A11.Text == "")
-                    {
-                        A11.Text = "Y";
-                    zug++;
-                    spieler++;
-                    break;
-                    }
-                    else
-
-                        break;
-                case 6:
-                    if ( A12.Text == "")
-                    {
-                        A12.Text = "Y";
-                        zug++;
-                        spieler++;
-                        break;
-                    }
-                    else
-
-                        break;
-                case 7:
-                    if ( A20.Text == "")
-                    {
-                        A20.Text = "Y";
-                        zug++;
-                        spieler++;
-                        break;
-                    }
-                    else
-
-                        break;
-                case 8:
-                    if (  A21.Text == "")
-                    {
-                        A21.Text = "Y";
-                        zug++;
-                        spieler++;
-                        break;
-                    }
-                    else
-
-                        break;
-                case 9:
-                    if (  A22.Text == "")
-                    {
-                        A22.Text = "Y";
-                        zug++;
-                        spieler++;
-                        break;
-                    }
-                    else
-
-                        break;
-            }
         }
+        public void ptnWert(Button btn)
+        {
+            btn.Text = "Y";
+            zug++;
+            spieler++;
+        }
+
         public void SchwierSp( )
         {
             if (spieler == 0|| spieler == 2 && A20.Text=="")
             {
-                A20.Text = "Y";
-                
-                zug++;
-                spieler++;
+                ptnWert(A20);
             }
            
 
             else if (A20.Text=="Y"&&A11.Text=="Y" && A02.Text==""  || A22.Text == "Y" && A12.Text == "Y" && A02.Text == "" || A00.Text == "Y" && A01.Text == "Y" && A02.Text == "" )
             {
-                A02.Text = "Y";
-                spieler++;
-                zug++;
+                
+                ptnWert(A02);
             }
             else if (A00.Text == "Y" && A11.Text == "Y" && A22.Text == "" || A02.Text == "Y" && A12.Text == "Y" && A22.Text == ""|| A20.Text=="Y"&& A21.Text=="Y" && A22.Text=="")
             {
-                A22.Text = "Y";
-                spieler++;
-                zug++;
+                ptnWert(A22);
             }
 
             else if (A12.Text == "Y" && A11.Text == "Y" && A10.Text == "" || A00.Text == "Y" && A20.Text == "Y" && A10.Text == "" )
             {
-                A10.Text = "Y";
-                spieler++;
-                zug++;
+                ptnWert(A10);
             }
             else if (A10.Text == "Y" && A11.Text == "Y" && A12.Text == "" || A02.Text == "Y" && A22.Text == "Y" && A12.Text == "")
             {
-                A12.Text = "Y";
-                spieler++;
-                zug++;
+                ptnWert(A12);
             }
             else if (A21.Text == "Y" && A11.Text == "Y" && A01.Text == "" || A00.Text == "Y" && A02.Text == "Y" && A01.Text == "")
             {
-                A01.Text = "Y";
-                spieler++;
-                zug++;
+                ptnWert(A01);
             }
             else if (A01.Text == "Y" && A11.Text == "Y" && A21.Text == ""  || A20.Text == "Y" && A22.Text == "Y" && A21.Text == "" )
             {
-                A21.Text = "Y";
-                spieler++;
-                zug++;
+                ptnWert(A21);
+            }
+            else if (A22.Text == "Y" && A11.Text == "Y" && A00.Text == "" || A22.Text == "X" && A11.Text == "X" && A00.Text == "" || A20.Text == "Y" && A10.Text == "Y" && A00.Text == "" || A20.Text == "X" && A10.Text == "X" && A00.Text == "" || A02.Text == "Y" && A10.Text == "Y" && A00.Text == "" || A02.Text == "X" && A01.Text == "X" && A00.Text == "")
+            {
+                ptnWert(A00);
             }
             else if (A01.Text == "X" && A11.Text == "X" && A21.Text == "" || A20.Text == "X" && A22.Text == "X" && A21.Text == "")
             {
-                A21.Text = "Y";
-                spieler++;
-                zug++;
+                ptnWert(A21);
             }
             else if (A20.Text == "X" && A11.Text == "X" && A02.Text == "" || A22.Text == "X" && A12.Text == "X" && A02.Text == "" || A00.Text == "X" && A01.Text == "X" && A02.Text == "")
             {
-                A02.Text = "Y";
-                spieler++;
-                zug++;
+                ptnWert(A02);
             }
             else if (A12.Text == "X" && A11.Text == "X" && A10.Text == "" || A00.Text == "X" && A20.Text == "X" && A10.Text == "")
             {
-                A10.Text = "Y";
-                spieler++;
-                zug++;
+                ptnWert(A10);
             }
             else if (A21.Text == "X" && A11.Text == "X" && A01.Text == "" || A00.Text == "X" && A02.Text == "X" && A01.Text == "")
                 {
-                    A01.Text = "Y";
-                    spieler++;
-                    zug++;
-                }
+                ptnWert(A01);
+            }
             else if (A00.Text == "X" && A11.Text == "X" && A22.Text == "" || A02.Text == "X" && A12.Text == "X" && A22.Text == "" || A20.Text == "X" && A21.Text == "X" && A22.Text == "")
             {
-                A22.Text = "Y";
-                spieler++;
-                zug++;
+                ptnWert(A22);
             }
 
             else if ((A10.Text == "X" && A11.Text == "X" && A12.Text == "") || (A02.Text == "X" && A22.Text == "X" && A12.Text == ""))
             {
-                A12.Text = "Y";
-                spieler++;
-                zug++;
-            }
-            else if (A22.Text == "Y" && A11.Text == "Y" && A00.Text == "" || A22.Text == "X" && A11.Text == "X" && A00.Text == "" || A20.Text == "Y" && A10.Text == "Y" && A00.Text == "" || A20.Text == "X" && A10.Text == "X" && A00.Text == "" || A02.Text == "Y" && A10.Text == "Y" && A00.Text == "" || A02.Text == "X" && A01.Text == "X" && A00.Text == "")
-            {
-                A00.Text = "Y";
-                spieler++;
-                zug++;
+                ptnWert(A12);
             }
             
             else if ( (A11.Text == "" ) &&  (spieler == 2 ||spieler==4 ))
             {
-                A11.Text = "Y";
-                zug++;
-                spieler++;
+                ptnWert(A11);
             }
             else if (( A12.Text == "") && (spieler == 0 || spieler == 2 || spieler == 4|| spieler == 6 || spieler == 8 || spieler == 10))
             {
-                A12.Text = "Y";
-                zug++;
-                spieler++;
+                ptnWert(A12);
             }
             else if ((A02.Text == "") && (spieler == 2 || spieler == 4 || spieler == 6 || spieler == 8))
             {
-                A02.Text = "Y";
-                zug++;
-                spieler++;
+                ptnWert(A02);
             }
             else if ((A21.Text == "") && (spieler ==10 || spieler == 6 || spieler == 8))
             {
-                A21.Text = "Y";
-                zug++;
-                spieler++;
+                ptnWert(A21);
             }
             else if ((A22.Text == "") && (spieler == 10 ||  spieler == 8))
             {
-                A22.Text = "Y";
-                zug++;
-                spieler++;
+                ptnWert(A22);
             }
             else if ((A00.Text == "") && (spieler == 6 || spieler == 4))
             {
-                A00.Text = "Y";
-                zug++;
-                spieler++;
+                ptnWert(A00);
             }
         }
         public void SpielerEingabe(Button b)
